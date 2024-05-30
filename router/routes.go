@@ -1,7 +1,7 @@
 package router
 
 import (
-	"github.com/WallaceMartinz/ramenGO/handler"
+	"github.com/WallaceMartinz/ramenGO/handlers"
 	"github.com/gin-gonic/gin"
 )
 
