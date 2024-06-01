@@ -5,13 +5,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Initializes routes for the application.
 func initializeRoutes(router *gin.Engine) {
-	v1 := router.Group("/api")
+	r := router.Group("/")
 	{
-		v1.GET("/broths", handler.GetBroths)
+		r.GET("/broths", handlers.GetBroths)
 
-		v1.GET("/proteins", handler.GetProteins)
+		r.GET("/proteins", handlers.GetProteins)
 
-		v1.POST("/orders", handler.PostOrders)
+		r.POST("/order", handlers.PostOrder)
 	}
 }

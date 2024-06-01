@@ -1,15 +1,20 @@
 package router
 
 import (
+	"github.com/WallaceMartinz/ramenGO/middleware"
 	"github.com/gin-gonic/gin"
 )
 
+// Init initializes the Gin router, sets up middlewares, defines routes, and starts the server.
 func Init() {
-	// Initialize Router
 	router := gin.Default()
 
-	// Initialize Routes
+	router.Use(
+		gin.HandlerFunc(middleware.CorsMiddleware()),
+		gin.HandlerFunc(middleware.ApiKeyMiddleware()),
+	)
+
 	initializeRoutes(router)
 
-	router.Run() // Serve on 0.0.0.0:8080 
+	router.Run()
 }
