@@ -1,6 +1,8 @@
 package data
 
-import "errors"
+import (
+	"errors"
+)
 
 // Protein represents a type of protein available in the application.
 type Protein struct {
@@ -47,3 +49,4 @@ func GetProteins() ([]Protein, error) {
 	}
 	return proteins, nil
 }
+

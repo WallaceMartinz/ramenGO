@@ -12,6 +12,7 @@ func handleGenericError(ctx *gin.Context) {
 	ctx.JSON(http.StatusInternalServerError, data.ErrorResponse{
 		Error: "could not place order",
 	})
+	ctx.Abort()
 }
 
 // handleBadRequest sends a bad request error response with status 400.
@@ -19,6 +20,7 @@ func HandleBadRequest(ctx *gin.Context) {
 	ctx.JSON(http.StatusBadRequest, data.ErrorResponse{
 		Error: "both brothId and proteinId are required",
 	})
+	ctx.Abort()
 }
 
 // HandleMissingAPIKey sends a forbidden error response with status 403.
@@ -26,4 +28,5 @@ func HandleMissingAPIKey(ctx *gin.Context) {
 	ctx.JSON(http.StatusForbidden, data.ErrorResponse{
 		Error: "x-api-key header missing",
 	})
+	ctx.Abort()
 }

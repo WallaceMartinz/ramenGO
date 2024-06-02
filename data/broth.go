@@ -2,7 +2,6 @@ package data
 
 import (
 	"errors"
-	"strconv"
 )
 
 // Broth represents a type of broth available in the application.
@@ -49,24 +48,4 @@ func GetBroths() ([]Broth, error) {
 		return nil, errors.New("no broths available")
 	}
 	return broths, nil
-}
-
-// GetBrothNameById returns the name of the broth based on the provided ID.
-func GetBrothNameById(brothId string) (string, error) {
-	id, err := strconv.Atoi(brothId)
-	if err != nil {
-		return "", err
-	}
-
-	broths, err := GetBroths()
-	if err != nil {
-		return "", err
-	}
-
-	for _, broth := range broths {
-		if broth.ID == id {
-			return broth.Name, nil
-		}
-	}
-	return "", errors.New("invalid broth ID")
 }

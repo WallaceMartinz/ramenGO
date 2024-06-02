@@ -9,10 +9,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+
+
 // GetBroths handles the request to get all broths.
 func GetBroths(ctx *gin.Context) {
 	broths, err := data.GetBroths()
-
 	if err != nil {
 		handleGenericError(ctx)
 		return

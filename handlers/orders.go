@@ -75,19 +75,26 @@ func PostOrder(ctx *gin.Context) {
 // createOrder processes the response from the external API and creates an OrderResponse.
 func createOrder(ctx *gin.Context, resp *http.Response, brothName string, proteinName string) data.OrderResponse {
 	var externalResponse data.ExternalResponse
+	response := data.OrderResponse{}
 
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
 		handleGenericError(ctx)
+		return response
 	}
 
 	if err := json.Unmarshal(respBody, &externalResponse); err != nil {
 		handleGenericError(ctx)
+		return response
 	}
 
 	imageURL := data.GetImageURL(proteinName)
+	if imageURL == "" {
+		handleGenericError(ctx)
+		return response 
+	}
 
-	response := data.NewOrderResponse(
+	response = data.NewOrderResponse(
 		externalResponse.OrderID,
 		fmt.Sprintf("%s and %s Ramen", brothName, proteinName),
 		imageURL,
