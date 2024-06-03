@@ -13,6 +13,6 @@ func initializeRoutes(router *gin.Engine) {
 
 		r.GET("/proteins", handlers.GetProteins)
 
-		r.POST("/orders", handlers.PostOrder)
+		r.POST("/order", handlers.PostOrder)
 	}
 }
