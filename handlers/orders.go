@@ -7,12 +7,11 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 
 	"github.com/WallaceMartinz/ramenGO/data"
 	"github.com/gin-gonic/gin"
 )
-
-
 
 // PostOrder handles the request to create a new order.
 func PostOrder(ctx *gin.Context) {
@@ -37,9 +36,8 @@ func PostOrder(ctx *gin.Context) {
 
 	ctx.Request.Body = io.NopCloser(bytes.NewBuffer(bodyBytes))
 
-	apikey := ctx.GetHeader("x-api-key")
+	apikey := os.Getenv("X_API_KEY_RV")
 	if apikey == "" {
-		HandleMissingAPIKey(ctx)
 		return
 	}
 
@@ -64,6 +62,7 @@ func PostOrder(ctx *gin.Context) {
 
 	if resp.StatusCode != http.StatusOK {
 		handleGenericError(ctx)
+		print(resp.StatusCode)
 		return
 	}
 
@@ -91,7 +90,7 @@ func createOrder(ctx *gin.Context, resp *http.Response, brothName string, protei
 	imageURL := data.GetImageURL(proteinName)
 	if imageURL == "" {
 		handleGenericError(ctx)
-		return response 
+		return response
 	}
 
 	response = data.NewOrderResponse(
