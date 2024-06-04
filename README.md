@@ -74,7 +74,7 @@ X_API_KEY=“Here you must replace it with your own api-key”
 ### Cloning the Repository
 
 ```sh
-git clone https://github.com/WallaceMartinz/TerraformRamenGO
+git clone [https://github.com/WallaceMartinz/TerraformRamenGO](https://github.com/WallaceMartinz/terraformRamenGO.git)
 ```
 
 ####Deploying with Terraform
