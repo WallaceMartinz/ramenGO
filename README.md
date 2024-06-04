@@ -4,7 +4,7 @@
 
 - [Technologies used](#technologies-used)
 - [Running the application](#running-the-application)
-  - Locally](#locally)
+  - [Locally](#locally)
   - [Using Docker](#using-docker)
 - [Deploying](#deploying)
 
@@ -14,14 +14,15 @@
 ![Gin](https://img.shields.io/badge/Gin-1.7.7-brightgreen)
 ![Docker](https://img.shields.io/badge/Docker-20.10.8-blue)
 ![Terraform](https://img.shields.io/badge/Terraform-1.2-purple)
-![Render](https://render.com/)
 
 RamenGO is a web application built with Go and the Gin framework, using Docker for containerization and Terraform for infrastructure management. The application is hosted on AWS and also on Render.
 
 ## Endpoints
 
 -\broths
+
 -\protein
+
 -\order
 
 - AWS: [https://ramengo.ddns.net](https://ramengo.ddns.net)
