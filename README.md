@@ -71,13 +71,13 @@ X_API_KEY=“Here you must replace it with your own api-key”
 
 ### Deployment on AWS
 
-### Cloning the Repository
+#### Cloning the Repository
 
 ```sh
 git clone [https://github.com/WallaceMartinz/TerraformRamenGO](https://github.com/WallaceMartinz/terraformRamenGO.git)
 ```
 
-####Deploying with Terraform
+#### Deploying with Terraform
 
 Configure your AWS credentials with aws configure and then execute:
 
